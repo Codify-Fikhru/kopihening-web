@@ -5,6 +5,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const navbar = document.querySelector('.navbar');
   window.addEventListener('scroll', function() {
     const value = window.scrollY;
+    console.log(value)
     return value > 0 ? navbar.classList.add('active') : navbar.classList.remove('active');
   });
   
@@ -56,40 +57,40 @@ window.addEventListener('DOMContentLoaded', () => {
   /* ========== DATA PRODUCT START ========== */
   const dataProduct = [
     {
-      image: 'produk1.jpg',
-      name: 'Jamaican Blue Mountain',
+      image: 'waffle.jpg',
+      name: 'waffle',
       price: 80000,
-      description: 'ditanam di pegunungan Jamaika dan dianggap sebagai salah satu kopi terbaik di dunia.'
+      description: 'Waffle adalah kue yang dikenal dengan tekstur ringan, renyah di luar dan lembut di dalam, serta permukaan khas yang berbentuk kotak-kotak atau grid.'
     },
     {
-      image: 'produk2.jpg',
-      name: 'Kopi Luwak',
+      image: 'Cookies.jpg',
+      name: 'Cookies',
       price: 15000,
-      description: 'juga dikenal sebagai kopi civet, dihasilkan dari biji kopi yang telah dikonsumsi dan dilewatkan melalui sistem pencernaan hewan luwak atau sejenisnya. Biasanya berasal dari Indonesia dan Filipina.'
+      description: 'Cookies adalah kue kecil yang terkenal dengan rasa manis dan tekstur yang renyah atau lembut. Mereka adalah camilan populer yang disukai oleh banyak orang di seluruh dunia karena variasinya yang tak terbatas dan kemudahan pembuatannya.'
     },
     {
-      image: 'produk2.jpg',
-      name: 'Ethiopian Yirgacheffe',
+      image: 'kroisan.jpg',
+      name: 'Croissant',
       price: 43000,
-      description: 'kopi Arabica berkualitas tinggi yang tumbuh di wilayah Yirgacheffe, Ethiopia. Memiliki cita rasa buah-buahan dan coklat yang kuat.'
+      description: 'Croissant adalah roti panggang berbentuk bulan sabit yang terkenal dengan lapisan-lapisan renyah dan lembut di dalamnya. Kue ini adalah salah satu kue khas Prancis yang paling ikonik dan telah menjadi favorit di seluruh dunia.'
     },
     {
-      image: 'produk1.jpg',
-      name: 'Colombian Supremo',
+      image: 'Coffe Latte.jpg',
+      name: 'Coffe Latte',
       price: 40000,
-      description: 'kopi Arabica yang berasal dari Colombia. Memiliki rasa kacang yang kaya dan asam yang seimbang.'
+      description: 'Coffee Latte, sering disebut hanya sebagai latte, adalah minuman kopi berbasis espresso yang terkenal dengan tekstur lembut dan rasanya yang kaya namun halus.'
     },
     {
-      image: 'produk2.jpg',
-      name: 'Sumatra Mandheling',
+      image: 'ice coffe.jpg',
+      name: 'Ice Coffe',
       price: 30000,
-      description: 'kopi Arabica dari pulau Sumatra, Indonesia. Memiliki rasa pahit dan aroma rempah-rempah yang kuat.'
+      description: 'Iced Coffee biasanya disajikan dalam gelas tinggi dengan banyak es batu untuk menjaga suhu tetap dingin.'
     },
     {
-      image: 'produk1.jpg',
-      name: 'Vietnamese Coffee',
+      image: 'Americano.jpg',
+      name: 'Americano',
       price: 65000,
-      description: 'yang dicampur dengan susu manis kental yang dikenal sebagai susu pekat. Sering disajikan dengan es batu dan disajikan sebagai minuman segar di Vietnam.'
+      description: 'Americano adalah kopi yang dibuat dengan menambahkan air panas ke shot espresso. Kopi ini dikenal karena rasanya yang halus dan lebih ringan dibandingkan espresso murni.'
     }
   ];
   /* ========== DATA PRODUCT END ========== */
