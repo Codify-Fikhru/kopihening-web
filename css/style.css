@@ -486,6 +486,7 @@ body {
 
   .navbar .navbar-icon #hamburger {
     display: inline-block;
+    margin-left: 16px;
   }
 
   /* hero section */
@@ -528,6 +529,10 @@ body {
 
   .about .row .content p {
     font-size: 15px;
+  }
+
+  .product .card-container {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   /* menu section */
