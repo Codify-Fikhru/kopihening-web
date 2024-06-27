@@ -61,42 +61,42 @@ window.addEventListener("DOMContentLoaded", () => {
     {
       image: "waffle.jpg",
       name: "waffle",
-      price: 80000,
+      price: 20000,
       description:
         "Waffle adalah kue yang dikenal dengan tekstur ringan, renyah di luar dan lembut di dalam, serta permukaan khas yang berbentuk kotak-kotak atau grid.",
     },
     {
       image: "Cookies.jpg",
       name: "Cookies",
-      price: 15000,
+      price: 20000,
       description:
         "Cookies adalah kue kecil yang terkenal dengan rasa manis dan tekstur yang renyah atau lembut. Mereka adalah camilan populer yang disukai oleh banyak orang di seluruh dunia karena variasinya yang tak terbatas dan kemudahan pembuatannya.",
     },
     {
       image: "kroisan.jpg",
       name: "Croissant",
-      price: 43000,
+      price: 40000,
       description:
         "Croissant adalah roti panggang berbentuk bulan sabit yang terkenal dengan lapisan-lapisan renyah dan lembut di dalamnya. Kue ini adalah salah satu kue khas Prancis yang paling ikonik dan telah menjadi favorit di seluruh dunia.",
     },
     {
       image: "Coffe Latte.jpg",
       name: "Coffe Latte",
-      price: 40000,
+      price: 30000,
       description:
         "Coffee Latte, sering disebut hanya sebagai latte, adalah minuman kopi berbasis espresso yang terkenal dengan tekstur lembut dan rasanya yang kaya namun halus.",
     },
     {
       image: "ice coffe.jpg",
       name: "Ice Coffe",
-      price: 30000,
+      price: 25000,
       description:
         "Iced Coffee biasanya disajikan dalam gelas tinggi dengan banyak es batu untuk menjaga suhu tetap dingin.",
     },
     {
       image: "Americano.jpg",
       name: "Americano",
-      price: 65000,
+      price: 30000,
       description:
         "Americano adalah kopi yang dibuat dengan menambahkan air panas ke shot espresso. Kopi ini dikenal karena rasanya yang halus dan lebih ringan dibandingkan espresso murni.",
     },
@@ -116,7 +116,7 @@ window.addEventListener("DOMContentLoaded", () => {
   showAllDataProduct();
 
   function renderElementProduct({ image, name, price, description }) {
-    const trimmedDescription = description.length > 30 ? description.slice(0, 30) : description
+    const trimmedDescription = description.length > 30 ? description.slice(0, 30) + "..." : description
 
     return `
       <div class="nk__card">
