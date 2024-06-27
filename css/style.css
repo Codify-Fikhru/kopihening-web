@@ -605,7 +605,7 @@ body {
   gap: 16px;
 
   width: 100%;
-  height: 360px;
+  height: 400px;
 
   background: #efefef;
   border-radius: 8px;
@@ -614,13 +614,28 @@ body {
 .nk__card .nk__card-header {
   display: flex;
   flex-direction: column;
-  /* align-items: flex-start; */
-  /* padding: 0px; */
   gap: 20px;
 
   margin: 0 auto;
   width: 100%;
   height: 275px;
+}
+
+.nk__card .nk__card-header-text {
+  height: 100%;
+  overflow-y: hidden;
+}
+
+.nk__card .nk__card-header-text:hover {
+  overflow-y: auto;
+}
+
+.nk__card .nk__card-header-text::-webkit-scrollbar {
+  width: 2px;
+}
+.nk__card .nk__card-header-text::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 2px;
 }
 
 .nk__card img {

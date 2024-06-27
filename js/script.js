@@ -116,7 +116,11 @@ window.addEventListener("DOMContentLoaded", () => {
   showAllDataProduct();
 
   function renderElementProduct({ image, name, price, description }) {
-    const trimmedDescription = description.length > 30 ? description.slice(0, 30) + "..." : description
+    const formattedHarga = new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+      maximumFractionDigits: 0,
+    })
 
     return `
       <div class="nk__card">
@@ -125,11 +129,11 @@ window.addEventListener("DOMContentLoaded", () => {
 
           <div class="nk__card-header-text">
             <h4 class="nama-produk">${name}</h4>
-            <p>${trimmedDescription}</p>
+            <p>${description}</p>
           </div>
         </div>
         <div class="nk__card-footer">
-          <h5 class="harga-produk">${price}</h5>
+          <h5 class="harga-produk">${formattedHarga.format(price)}</h5>
           <button type="button" class="button button-cart">Add to cart</button>
         </div>
       </div>
