@@ -66,7 +66,7 @@ window.addEventListener("DOMContentLoaded", () => {
         "Waffle adalah kue yang dikenal dengan tekstur ringan, renyah di luar dan lembut di dalam, serta permukaan khas yang berbentuk kotak-kotak atau grid.",
     },
     {
-      image: "Cookies.jpg",
+      image: "cookies.jpg",
       name: "Cookies",
       price: 20000,
       description:
