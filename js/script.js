@@ -4,7 +4,6 @@ window.addEventListener("DOMContentLoaded", () => {
   const navbar = document.querySelector(".navbar");
   window.addEventListener("scroll", function () {
     const value = window.scrollY;
-    console.log(value);
     return value > 0
       ? navbar.classList.add("active")
       : navbar.classList.remove("active");
@@ -125,7 +124,7 @@ window.addEventListener("DOMContentLoaded", () => {
     return `
       <div class="nk__card">
         <div class="nk__card-header">
-          <img src="images/${image}" alt="${name}">
+          <img class="gambar-produk" src="images/${image}" alt="${name}">
 
           <div class="nk__card-header-text">
             <h4 class="nama-produk">${name}</h4>
@@ -133,6 +132,7 @@ window.addEventListener("DOMContentLoaded", () => {
           </div>
         </div>
         <div class="nk__card-footer">
+          <span class="produk_price" style="display: none;">${price}</span>
           <h5 class="harga-produk">${formattedHarga.format(price)}</h5>
           <button type="button" class="button button-cart">Add to cart</button>
         </div>
@@ -150,12 +150,13 @@ window.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("click", (event) => {
     if (event.target.classList.contains("button-cart")) {
       // dapatkan element "div" dengan class "card"
-      const card = event.target.parentElement;
+      const card_footer = event.target.parentElement;
+      const card = card_footer.parentElement;
       // tangkap isi dari gambar produk, nama produk dan harga produk
       const item = {
         image: card.querySelector(".gambar-produk").src,
         name: setName(card.querySelector(".nama-produk").textContent),
-        price: parseFloat(card.querySelector(".harga-produk").textContent),
+        price: parseFloat(card.querySelector(".produk_price").textContent),
       };
       // jalankan fungsi addProductToCart()
       addProductToCart(item);
