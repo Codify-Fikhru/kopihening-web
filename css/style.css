@@ -20,6 +20,10 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+x-cloak {
+  display: none;
+}
+
 /* navbar */
 .navbar {
   position: fixed;
