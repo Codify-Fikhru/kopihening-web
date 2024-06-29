@@ -1,143 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  
-  <!-- fontawesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-  
-  <!-- sweetalert2 css -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.2/sweetalert2.min.css">
-  
-  <!-- my css -->
-  <link rel="stylesheet" href="css/style.css">
-  <title>Website Kedai Kopi</title>
-</head>
-<body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-  <!-- navbar start -->
-  <nav class="navbar">
-    <a href="#" class="navbar-logo">Kopi <span>Hening</span></a>
-    <div class="navbar-list-group">
-      <a href="#home" class="navbar-list">Home</a>
-      <a href="#about" class="navbar-list">Tentang Kami</a>
-      <a href="#product" class="navbar-list">Produk</a>
-    </div>
-    <div class="navbar-icon">
-      <i data-feather="search" class="icon btn-modal" id="search" data-modal="searchModal"></i>
-      <i data-feather="shopping-cart" class="icon btn-modal" id="shopping-cart" data-modal="tableModal"></i>
-      <a href="https://wa.me/+6282260353253" target="_blank" class="nk__cta_button" id="cta-wa">
-        <i class="fa-brands fa-whatsapp"></i>
-        <span>Hubungi Kami</span>
-      </a>
-      <i data-feather="menu" class="icon" id="hamburger"></i>
-    </div>
-  </nav>
-  <!-- navbar end -->
-  
-  <!-- section hero start -->
-  <section class="hero" id="home">
-    <div class="content">
-      <h1>Mari Nikmati Secangkir <span>Kopi</span></h1>
-      <p>Mengajak Anda untuk sejenak berhenti dari kesibukan sehari-hari dan menikmati kenikmatan secangkir kopi. Setiap tegukan membawa kehangatan dan kedamaian, menciptakan momen istimewa di tengah kesibukan hidup.</p>
-      <a href="#product" class="button">Beli Sekarang</a>
-    </div>
-  </section>
-  <!-- section hero end -->
-  
-  <!-- section about start -->
-  <section class="about" id="about">
-    <h2>Tentang <span>Kami</span></h2>
-    <div class="row">
-      <div class="image-wrapper">
-        <img src="images/tentangkami.jpg" width="100" alt="tentang kami" class="image">
-      </div>
-      <div class="content">
-        <h3>Kenapa Memilih Kami</h3>
-        <p>Kami memahami bahwa Anda memiliki banyak pilihan, dan itulah sebabnya kami berkomitmen untuk memberikan yang terbaik.</p>
-        <p>Tim profesional kami siap melayani dengan ramah dan cepat, memastikan setiap kebutuhan Anda terpenuhi dengan sempurna</p>
-      </div>
-    </div>
-  </section>
-  <!-- section about end -->
-  
-  <!-- section menu start -->
-  <section class="product" id="product">
-    <div class="header">
-      <h2>Produk <span>Kami</span></h2>
-      <p>Kami bangga menyajikan produk-produk unggulan yang dirancang dengan teliti dan kualitas tinggi. </p>
-    </div>
-    <div class="card-container"></div>
-  </section>
-  <!-- section menu end -->
-  
-  <!-- section contact start -->
-  <!-- section contact end -->
-  
-  <!-- footer start -->
-  <footer class="footer">
-    <div class="wrapper">
-      <a href="https://#" target="_blank"><i data-feather="instagram"></i></a>
-      <a href="https://#" target="_blank"><i data-feather="facebook"></i></a>
-    </div>
-    <div class="wrapper">
-      <a href="#home">Home</a>
-      <a href="#about">Tentang Kami</a>
-      <a href="#product">Produk Kami</a>
-      <a href="#contact">Kontak</a>
-    </div>
-    <span>created by <a href="" target="_blank">kopi hening</a> | © 2024</span>
-  </footer>
-  <!-- footer end -->
-  
-  <!-- search input modal start -->
-  <div class="modal" data-id="searchModal">
-    <div class="modal-header">
-      <h3>Search Produk</h3>
-      <i data-feather="x-circle" class="btn-modal-close"></i>
-    </div>
-    <div class="modal-body">
-      <div class="form-group">
-        <input type="text" class="input search-input" placeholder="ketikkan nama produk ...">
-      </div>
-      <!-- product container start -->
-      <div class="product-container"></div>
-      <!-- product container end -->
-    </div>
-  </div>
-  <!-- search input modal end -->
-  
-  <!-- shopping cart modal start -->
-  <div class="modal" data-id="tableModal">
-    <div class="modal-header">
-      <h3>Shopping Cart Modal</h3>
-      <i data-feather="x-circle" class="btn-modal-close"></i>
-    </div>
-    <div class="modal-body">
-      <!-- list start -->
-      <div class="box-container"></div>
-      <!-- list end -->
-      <div class="wrapper">
-        <h4>Total Biaya : </h4>
-        <span class="price">0</span>
-      </div>
-      <button class="button button-checkout">Checkout</button>
-    </div>
-  </div>
-  <!-- shopping cart modal end -->
-  
+		<!-- Font Awesome -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
 
-  
-  <!-- feather icon -->
-  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-  <script src="js/icon.js"></script>
-  
-  <!-- sweetalert2 js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.2/sweetalert2.min.js"></script>
-  
-  <!-- my javascript -->
-  <script src="js/script.js"></script>
-</body>
+		<!-- Sweet Alert 2 -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.2/sweetalert2.min.css" />
+
+		<!-- Custom CSS -->
+		<link rel="stylesheet" href="css/style.css" />
+		<title>Website Kedai Kopi</title>
+	</head>
+	<body>
+		<!-- NAVBAR START -->
+		<nav class="navbar">
+			<!-- Logo navbar -->
+			<a href="#" class="navbar-logo">Kopi <span>Hening</span></a>
+			<div class="navbar-list-group">
+				<!-- Daftar navigasi -->
+				<a href="#home" class="navbar-list">Home</a>
+				<a href="#about" class="navbar-list">Tentang Kami</a>
+				<a href="#product" class="navbar-list">Produk</a>
+			</div>
+			<div class="navbar-icon">
+				<!-- Ikon-ikon di navbar -->
+				<i data-feather="search" class="icon btn-modal" id="search" data-modal="searchModal"></i>
+				<i data-feather="shopping-cart" class="icon btn-modal" id="shopping-cart" data-modal="tableModal"></i>
+				<!-- Tombol Kontak WhatsApp -->
+				<a href="https://wa.me/+6282260353253" target="_blank" class="nk__cta_button" id="cta-wa">
+					<i class="fa-brands fa-whatsapp"></i>
+					<span>Hubungi Kami</span>
+				</a>
+				<i data-feather="menu" class="icon" id="hamburger"></i>
+			</div>
+		</nav>
+		<!-- NAVBAR END -->
+
+		<!-- HERO SECTION START -->
+		<header class="hero" id="home">
+			<div class="content">
+				<h1>Mari Nikmati Secangkir <span>Kopi</span></h1>
+				<p>
+					Mengajak Anda untuk sejenak berhenti dari kesibukan sehari-hari dan menikmati kenikmatan secangkir kopi. Setiap tegukan membawa kehangatan dan kedamaian,
+					menciptakan momen istimewa di tengah kesibukan hidup.
+				</p>
+				<!-- Tombol ajakan aksi -->
+				<a href="#product" class="button">Beli Sekarang</a>
+			</div>
+		</header>
+		<!-- HERO SECTION END -->
+
+		<!-- ABOUT SECTION START -->
+		<section class="about" id="about">
+			<h2>Tentang <span>Kami</span></h2>
+			<div class="row">
+				<div class="image-wrapper">
+					<!-- Gambar tentang kami -->
+					<img src="images/tentangkami.jpg" width="100" alt="tentang kami" class="image" />
+				</div>
+				<div class="content">
+					<h3>Kenapa Memilih Kami</h3>
+					<p>Kami memahami bahwa Anda memiliki banyak pilihan, dan itulah sebabnya kami berkomitmen untuk memberikan yang terbaik.</p>
+					<p>Tim profesional kami siap melayani dengan ramah dan cepat, memastikan setiap kebutuhan Anda terpenuhi dengan sempurna</p>
+				</div>
+			</div>
+		</section>
+		<!-- ABOUT SECTION END -->
+
+		<!-- PRODUCT SECTION START -->
+		<section class="product" id="product">
+			<div class="header">
+				<h2>Produk <span>Kami</span></h2>
+				<p>Kami bangga menyajikan produk-produk unggulan yang dirancang dengan teliti dan kualitas tinggi.</p>
+			</div>
+			<!-- Kontainer untuk kartu produk -->
+			<div class="card-container">
+				<!-- Product Card akan di render disini -->
+				<!-- Render = Proses mengolah data dan memasukkan data tersebut ke dalam -->
+				<!-- template untuk ditampilkan di layar (lihat script.js untuk penjelasan lebih lengkap) -->
+			</div>
+		</section>
+		<!-- PRODUCT SECTION END -->
+
+		<!-- FOOTER START -->
+		<footer class="footer">
+			<div class="wrapper">
+				<!-- Tautan sosial media -->
+				<a href="https://#" target="_blank"><i data-feather="instagram"></i></a>
+				<a href="https://#" target="_blank"><i data-feather="facebook"></i></a>
+			</div>
+			<div class="wrapper">
+				<!-- Tautan navigasi di footer -->
+				<a href="#home">Home</a>
+				<a href="#about">Tentang Kami</a>
+				<a href="#product">Produk Kami</a>
+				<a href="#contact">Kontak</a>
+			</div>
+			<span>created by <a href="" target="_blank">kopi hening</a> | © 2024</span>
+		</footer>
+		<!-- FOOTER END -->
+
+		<!-- MODAL SEARCH START -->
+		<div class="modal" data-id="searchModal">
+			<div class="modal-header">
+				<h3>Search Produk</h3>
+				<i data-feather="x-circle" class="btn-modal-close"></i>
+			</div>
+			<div class="modal-body">
+				<div class="form-group">
+					<!-- Input pencarian produk -->
+					<input type="text" class="input search-input" placeholder="ketikkan nama produk ..." />
+				</div>
+				<!-- Kontainer produk pencarian -->
+				<div class="product-container">
+					<!-- Produk hasil pencarian akan di render disini -->
+				</div>
+			</div>
+		</div>
+		<!-- MODAL SEARCH END -->
+
+		<!-- MODAL SHOPPING CART START -->
+		<div class="modal" data-id="tableModal">
+			<div class="modal-header">
+				<h3>Shopping Cart Modal</h3>
+				<i data-feather="x-circle" class="btn-modal-close"></i>
+			</div>
+			<div class="modal-body">
+				<!-- Daftar produk di keranjang -->
+				<div class="box-container">
+					<!-- Daftar produk yang ada di keranjang belanjaan akan dirender disi -->
+				</div>
+
+				<div class="wrapper">
+					<h4>Total Biaya :</h4>
+					<span class="price">0</span>
+				</div>
+				<!-- Tombol checkout -->
+				<button class="button button-checkout">Checkout</button>
+			</div>
+		</div>
+		<!-- MODAL SHOPPING CART END -->
+
+		<!-- Memanggil Feather Icons -->
+		<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+		<script src="js/icon.js"></script>
+
+		<!-- Memanggil SweetAlert2 JS -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.2/sweetalert2.min.js"></script>
+
+		<!-- Memanggil file JS milik sendiri -->
+		<script src="js/script.js"></script>
+	</body>
 </html>
