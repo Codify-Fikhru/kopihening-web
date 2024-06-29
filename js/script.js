@@ -1,404 +1,405 @@
 window.addEventListener("DOMContentLoaded", () => {
-  /* ========== NAVBAR START ========== */
-  // sticky navbar
-  const navbar = document.querySelector(".navbar");
-  window.addEventListener("scroll", function () {
-    const value = window.scrollY;
-    return value > 0
-      ? navbar.classList.add("active")
-      : navbar.classList.remove("active");
-  });
+	// Semua script di yang ada dalam kurung dijalankan setelah tampilan HTML dan CSS muncul di halaman
+	// Memilih elemen dengan class navbar menggunakan querySelector
+	// querySelector memilih elemen dengan cara yang sama seperti CSS Selector
+	// jika diawali dengan tanda ".", artinya memilih elemen dengan class
+	// contoh ".navbar" berarti elemen yang menggunakan class="navbar" (Lihat file HTML untuk contoh lebih jelas)
+	const navbar = document.querySelector(".navbar")
+	window.addEventListener("scroll", function () {
+		// Semua script di yang ada dalam kurung dijalankan saat halaman di scroll
+		const value = window.scrollY // Mengambil nilai scrollY dari halaman (berapa piksel halaman di scroll dari atas)
 
-  // tombol hamburger navbar
-  const navbarListGroup = document.querySelector(".navbar-list-group");
-  const navbarButton = document.querySelector("#hamburger");
-  navbarButton.addEventListener("click", () => {
-    navbarListGroup.classList.toggle("active");
-  });
+		// Menggunakan shorthand if statement untuk memberi class tambahan pada navbar
+		// Jika value lebih dari 0, tambahkan class active. Jika value kurang dari 0, hapus class active
+		return value > 0 ? navbar.classList.add("active") : navbar.classList.remove("active")
+	})
 
-  document.addEventListener("click", (event) => {
-    if (
-      !navbarButton.contains(event.target) &&
-      !navbar.contains(event.target)
-    ) {
-      navbarListGroup.classList.remove("active");
-    }
-  });
-  /* ========== NAVBAR END ========== */
+	const navbarListGroup = document.querySelector(".navbar-list-group")
+	const navbarButton = document.querySelector("#hamburger")
+	navbarButton.addEventListener("click", () => {
+		// Semua script di yang ada dalam kurung dijalankan saat tombol hamburger (tiga garis) diklik
+		navbarListGroup.classList.toggle("active") // memberi class active pada navbar-list-group jika class active tidak ada dalam navbar-list-group. Jika ada, maka hilangkan class active tersebut
+	})
 
-  /* ========== MODAL START ========== */
-  // modal
-  const modals = document.querySelectorAll(".modal");
-  const btnModal = document.querySelectorAll(".btn-modal");
-  btnModal.forEach((btn) => {
-    btn.addEventListener("click", function () {
-      const id = this.dataset.modal.trim().toLowerCase();
-      showAndHideModal(id);
-    });
-  });
+	// Menambahkan event listener untuk menangani klik pada dokumen
+	document.addEventListener("click", (event) => {
+		// Jika klik tidak mengenai navbarButton dan navbar, maka sembunyikan navbarListGroup
+		if (!navbarButton.contains(event.target) && !navbar.contains(event.target)) {
+			navbarListGroup.classList.remove("active")
+		}
+	})
 
-  // tampilkan modal yang sesuai dengan isi data-id dan sembunyikan modal lainnya
-  function showAndHideModal(id) {
-    modals.forEach((modal) => {
-      const data = modal.dataset.id.trim().toLowerCase();
-      if (data === id) return modal.classList.toggle("active");
-      return modal.classList.remove("active");
-    });
-  }
+	// Mengambil semua elemen dengan kelas "modal"
+	const modals = document.querySelectorAll(".modal")
+	// Mengambil semua elemen dengan kelas "btn-modal"
+	const btnModal = document.querySelectorAll(".btn-modal")
+	// Menambahkan event listener untuk setiap tombol modal
+	btnModal.forEach((btn) => {
+		btn.addEventListener("click", function () {
+			// Mengambil data atribut "modal" dari tombol yang ditekan
+			const id = this.dataset.modal.trim().toLowerCase()
+			// Memanggil fungsi untuk menampilkan dan menyembunyikan modal
+			showAndHideModal(id)
+		})
+	})
 
-  // tombol untuk menghilangkan modal tertentu
-  const btnModalClose = document.querySelectorAll(".btn-modal-close");
-  btnModalClose.forEach((btnClose) => {
-    btnClose.addEventListener("click", () => {
-      modals.forEach((modal) => modal.classList.remove("active"));
-    });
-  });
-  /* ========== MODAL END ========== */
+	// Fungsi untuk menampilkan dan menyembunyikan modal berdasarkan ID
+	function showAndHideModal(id) {
+		// Iterasi melalui semua elemen modal
+		modals.forEach((modal) => {
+			// Mengambil data atribut "id" dari modal
+			const data = modal.dataset.id.trim().toLowerCase()
+			// Jika ID modal sama dengan ID yang diambil dari tombol, toggle kelas "active"
+			if (data === id) return modal.classList.toggle("active")
+			// Jika ID tidak sama, sembunyikan modal dengan menghapus kelas "active"
+			return modal.classList.remove("active")
+		})
+	}
 
-  /* ========== DATA PRODUCT START ========== */
-  const dataProduct = [
-    {
-      image: "waffle.jpg",
-      name: "waffle",
-      price: 20000,
-      description:
-        "Waffle adalah kue yang dikenal dengan tekstur ringan, renyah di luar dan lembut di dalam, serta permukaan khas yang berbentuk kotak-kotak atau grid.",
-    },
-    {
-      image: "cookies.jpg",
-      name: "Cookies",
-      price: 20000,
-      description:
-        "Cookies adalah kue kecil yang terkenal dengan rasa manis dan tekstur yang renyah atau lembut. Mereka adalah camilan populer yang disukai oleh banyak orang di seluruh dunia karena variasinya yang tak terbatas dan kemudahan pembuatannya.",
-    },
-    {
-      image: "kroisan.jpg",
-      name: "Croissant",
-      price: 40000,
-      description:
-        "Croissant adalah roti panggang berbentuk bulan sabit yang terkenal dengan lapisan-lapisan renyah dan lembut di dalamnya. Kue ini adalah salah satu kue khas Prancis yang paling ikonik dan telah menjadi favorit di seluruh dunia.",
-    },
-    {
-      image: "Coffe Latte.jpg",
-      name: "Coffe Latte",
-      price: 30000,
-      description:
-        "Coffee Latte, sering disebut hanya sebagai latte, adalah minuman kopi berbasis espresso yang terkenal dengan tekstur lembut dan rasanya yang kaya namun halus.",
-    },
-    {
-      image: "ice coffe.jpg",
-      name: "Ice Coffe",
-      price: 25000,
-      description:
-        "Iced Coffee biasanya disajikan dalam gelas tinggi dengan banyak es batu untuk menjaga suhu tetap dingin.",
-    },
-    {
-      image: "Americano.jpg",
-      name: "Americano",
-      price: 30000,
-      description:
-        "Americano adalah kopi yang dibuat dengan menambahkan air panas ke shot espresso. Kopi ini dikenal karena rasanya yang halus dan lebih ringan dibandingkan espresso murni.",
-    },
-  ];
-  /* ========== DATA PRODUCT END ========== */
+	// Mengambil semua elemen dengan kelas "btn-modal-close"
+	const btnModalClose = document.querySelectorAll(".btn-modal-close")
+	// Menambahkan event listener untuk setiap tombol penutup modal
+	btnModalClose.forEach((btnClose) => {
+		btnClose.addEventListener("click", () => {
+			// Menyembunyikan semua modal dengan menghapus kelas "active"
+			modals.forEach((modal) => modal.classList.remove("active"))
+		})
+	})
 
-  /* ========== SHOW ALL DATA PRODUCT START ========== */
-  const cardContainer = document.querySelector(".card-container");
+	// List data produk
+	const dataProduct = [
+		{
+			image: "waffle.jpg",
+			name: "waffle",
+			price: 20000,
+			description: "Waffle adalah kue yang dikenal dengan tekstur ringan, renyah di luar dan lembut di dalam, serta permukaan khas yang berbentuk kotak-kotak atau grid.",
+		},
+		{
+			image: "cookies.jpg",
+			name: "Cookies",
+			price: 20000,
+			description:
+				"Cookies adalah kue kecil yang terkenal dengan rasa manis dan tekstur yang renyah atau lembut. Mereka adalah camilan populer yang disukai oleh banyak orang di seluruh dunia karena variasinya yang tak terbatas dan kemudahan pembuatannya.",
+		},
+		{
+			image: "kroisan.jpg",
+			name: "Croissant",
+			price: 40000,
+			description:
+				"Croissant adalah roti panggang berbentuk bulan sabit yang terkenal dengan lapisan-lapisan renyah dan lembut di dalamnya. Kue ini adalah salah satu kue khas Prancis yang paling ikonik dan telah menjadi favorit di seluruh dunia.",
+		},
+		{
+			image: "Coffe Latte.jpg",
+			name: "Coffe Latte",
+			price: 30000,
+			description:
+				"Coffee Latte, sering disebut hanya sebagai latte, adalah minuman kopi berbasis espresso yang terkenal dengan tekstur lembut dan rasanya yang kaya namun halus.",
+		},
+		{
+			image: "ice coffe.jpg",
+			name: "Ice Coffe",
+			price: 25000,
+			description: "Iced Coffee biasanya disajikan dalam gelas tinggi dengan banyak es batu untuk menjaga suhu tetap dingin.",
+		},
+		{
+			image: "Americano.jpg",
+			name: "Americano",
+			price: 30000,
+			description:
+				"Americano adalah kopi yang dibuat dengan menambahkan air panas ke shot espresso. Kopi ini dikenal karena rasanya yang halus dan lebih ringan dibandingkan espresso murni.",
+		},
+	]
 
-  function showAllDataProduct() {
-    dataProduct.forEach((data) => {
-      const result = renderElementProduct(data);
-      cardContainer.insertAdjacentHTML("afterbegin", result);
-    });
-  }
+	// Mengambil elemen dengan kelas "card-container"
+	const cardContainer = document.querySelector(".card-container")
 
-  showAllDataProduct();
+	// Fungsi untuk menampilkan semua data produk
+	function showAllDataProduct() {
+		// Iterasi melalui setiap data produk dalam array dataProduct
+		dataProduct.forEach((data) => {
+			// Memanggil fungsi renderElementProduct untuk membuat elemen HTML produk
+			const result = renderElementProduct(data)
+			// Menyisipkan elemen HTML produk ke dalam cardContainer
+			cardContainer.insertAdjacentHTML("afterbegin", result)
+		})
+	}
 
-  function renderElementProduct({ image, name, price, description }) {
-    const formattedHarga = new Intl.NumberFormat("id-ID", {
-      style: "currency",
-      currency: "IDR",
-      maximumFractionDigits: 0,
-    })
+	// Memanggil fungsi untuk menampilkan semua data produk
+	showAllDataProduct()
 
-    return `
-      <div class="nk__card">
-        <div class="nk__card-header">
-          <img class="gambar-produk" src="images/${image}" alt="${name}">
+	// Fungsi untuk membuat elemen HTML produk
+	function renderElementProduct({ image, name, price, description }) {
+		// Memformat harga menggunakan format mata uang Indonesia (IDR)
+		const formattedHarga = new Intl.NumberFormat("id-ID", {
+			style: "currency",
+			currency: "IDR",
+			maximumFractionDigits: 0,
+		})
 
-          <div class="nk__card-header-text">
-            <h4 class="nama-produk">${name}</h4>
-            <p>${description}</p>
-          </div>
+		// Mengembalikan template string yang berisi elemen HTML produk
+		return `
+        <div class="nk__card">
+            <div class="nk__card-header">
+                <img class="gambar-produk" src="images/${image}" alt="${name}">
+                <div class="nk__card-header-text">
+                    <h4 class="nama-produk">${name}</h4>
+                    <p>${description}</p>
+                </div>
+            </div>
+            <div class="nk__card-footer">
+                <span class="produk_price" style="display: none;">${price}</span>
+                <h5 class="harga-produk">${formattedHarga.format(price)}</h5>
+                <button type="button" class="button button-cart">Add to cart</button>
+            </div>
         </div>
-        <div class="nk__card-footer">
-          <span class="produk_price" style="display: none;">${price}</span>
-          <h5 class="harga-produk">${formattedHarga.format(price)}</h5>
-          <button type="button" class="button button-cart">Add to cart</button>
+    `
+	}
+
+	// Data Keranjang Belanjaan
+	let tasks = []
+
+	// Mengambil elemen yang diperlukan dari DOM
+	const price = document.querySelector(".price")
+	const boxContainer = document.querySelector(".box-container")
+
+	// Menambahkan event listener untuk menangani klik pada jendela
+	window.addEventListener("click", (event) => {
+		// Jika klik terjadi pada tombol dengan kelas "button-cart"
+		if (event.target.classList.contains("button-cart")) {
+			// Mendapatkan elemen card_footer dan card dari tombol yang diklik
+			const card_footer = event.target.parentElement
+			const card = card_footer.parentElement
+
+			// Membuat objek item yang berisi informasi produk
+			const item = {
+				image: card.querySelector(".gambar-produk").src,
+				name: setName(card.querySelector(".nama-produk").textContent),
+				price: parseFloat(card.querySelector(".produk_price").textContent),
+			}
+
+			// Menambahkan produk ke keranjang belanja
+			addProductToCart(item)
+		}
+	})
+
+	// Fungsi untuk menambahkan produk ke keranjang belanja
+	function addProductToCart(item) {
+		// Menambahkan item ke awal array tasks
+		tasks.unshift(item)
+
+		// Menyimpan data keranjang belanja ke localStorage
+		saveToLocalstorage()
+
+		// Menampilkan produk di UI
+		showUI(item)
+
+		// Menampilkan alert bahwa produk sudah dimasukkan ke keranjang belanja
+		alerts("success", "Produk sudah dimasukkan ke dalam keranjang belanja")
+
+		// Mengupdate total biaya
+		updateTotalCost()
+
+		// Memuat data
+		loadData()
+	}
+
+	// Fungsi untuk memotong nama produk jika terlalu panjang
+	function setName(param) {
+		return param.length > 20 ? `${param.substring(0, 20)}...` : param
+	}
+
+	// Fungsi untuk menyimpan data keranjang belanja ke localStorage
+	function saveToLocalstorage() {
+		localStorage.setItem("shopping-cart", JSON.stringify(tasks))
+	}
+
+	// Fungsi untuk menampilkan produk di UI
+	function showUI(data, index = 0) {
+		const result = renderElementCart(data, index)
+		boxContainer.insertAdjacentHTML("beforeend", result)
+	}
+
+	// Fungsi untuk membuat elemen HTML produk di keranjang belanja
+	function renderElementCart({ image, name, price }, index) {
+		return `
+        <div class="box">
+            <div class="box-wrapper">
+                <img src="${image}" alt="gambar produk" class="image">
+                <div class="text-wrapper">
+                    <h4>${name}</h4>
+                    <span>${price}</span>
+                </div>
+            </div>
+            <i class="fa-solid fa-trash-alt btn-delete" data-id="${index}"></i>
         </div>
-      </div>
-    `;
-  }
-  /* ========== SHOW ALL DATA PRODUCT END ========== */
+    `
+	}
 
-  /* ========== SHOPPING CART START ========== */
-  let tasks = [];
+	// Fungsi untuk menampilkan alert menggunakan Sweet Alert 2
+	function alerts(type, text) {
+		swal.fire({
+			icon: type,
+			title: "Alert",
+			text: text,
+		})
+	}
 
-  // fitur add to cart
-  const price = document.querySelector(".price");
-  const boxContainer = document.querySelector(".box-container");
-  window.addEventListener("click", (event) => {
-    if (event.target.classList.contains("button-cart")) {
-      // dapatkan element "div" dengan class "card"
-      const card_footer = event.target.parentElement;
-      const card = card_footer.parentElement;
-      // tangkap isi dari gambar produk, nama produk dan harga produk
-      const item = {
-        image: card.querySelector(".gambar-produk").src,
-        name: setName(card.querySelector(".nama-produk").textContent),
-        price: parseFloat(card.querySelector(".produk_price").textContent),
-      };
-      // jalankan fungsi addProductToCart()
-      addProductToCart(item);
-    }
-  });
+	function loadData() {
+		boxContainer.innerHTML = ""
 
-  function addProductToCart(item) {
-    // masukkan isi variabel "item" kedalam variabel "tasks"
-    tasks.unshift(item);
-    // simpan isi variabel "tasks" kedalam localstorage
-    saveToLocalstorage();
-    // render isi variabel "item" menjadi element HTML dan tampilkan element tersebut
-    showUI(item);
-    // tampilkan pesan bahwa produk yang ditekan sudah dimasukkan ke keranjang belanjaan
-    alerts("success", "produk sudah dimasukkan kedalam keranjang belanja");
-    // update total biaya yang harus dibayarkan
-    updateTotalCost();
-    // load atau muat data yang ada didalam localstorage
-    loadData();
-  }
+		const data = localStorage.getItem("shopping-cart")
+		tasks = data ? JSON.parse(data) : []
 
-  function setName(param) {
-    // jika panjang karakter melebihi angka 20, maka batasi teks tersebut
-    return param.length > 20 ? `${param.substring(0, 20)}...` : param;
-  }
+		tasks.forEach((task, index) => {
+			showUI(task, index)
 
-  function saveToLocalstorage() {
-    /*
-      parsing isi variabel "tasks" menjadi string JSON dengan fungsi JSON.stringify() lalu masukkan
-      hasilnya kedalam localstorage dengan nama "shopping-cart"
-    */
-    localStorage.setItem("shopping-cart", JSON.stringify(tasks));
-  }
+			updateTotalCost()
+		})
+	}
 
-  function showUI(data, index = 0) {
-    // render isi parameter "data" menjadi element HTML
-    const result = renderElementCart(data, index);
-    // tampilkan element HTML
-    boxContainer.insertAdjacentHTML("beforeend", result);
-  }
+	// Memuat data dari localStorage atau sumber lainnya
+	loadData()
 
-  function renderElementCart({ image, name, price }, index) {
-    /*
-      saya menggunakan plugin atau library fontawesome dibagian icon untuk menghapus data
-      dikarenakan pada saat menggunakan feather-icon, icon tersebut tidak muncul
-    */
-    return `
-      <div class="box">
-        <div class="box-wrapper">
-          <img src="${image}" alt="gambar produk" class="image">
-          <div class="text-wrapper">
-            <h4>${name}</h4>
-            <span>${price}</span>
-          </div>
-        </div>
-        <i class="fa-solid fa-trash-alt btn-delete" data-id="${index}"></i>
-      </div>
-    `;
-  }
+	// Fungsi untuk mengupdate total biaya
+	function updateTotalCost() {
+		// Menghitung total harga dari semua item dalam tasks
+		const result = tasks.map((task) => task.price).reduce((total, num) => (total += num), 0)
+		// Menampilkan total harga pada elemen price
+		price.textContent = result
+	}
 
-  function alerts(type, text) {
-    // plugin / library sweetalert2
-    swal.fire({
-      icon: type,
-      title: "Alert",
-      text: text,
-    });
-  }
+	// Menambahkan event listener untuk menangani klik pada jendela
+	window.addEventListener("click", (event) => {
+		// Jika klik terjadi pada tombol dengan kelas "btn-delete"
+		if (event.target.classList.contains("btn-delete")) {
+			// Mendapatkan data-id dari tombol yang diklik
+			const id = event.target.dataset.id
+			// Memanggil fungsi deleteData untuk menghapus item dari tasks
+			deleteData(id)
+		}
+	})
 
-  function loadData() {
-    // bersihkan isi element "boxContainer"
-    boxContainer.innerHTML = "";
-    // ambil data yang ada di localstorage
-    const data = localStorage.getItem("shopping-cart");
-    /*
-      jika variabel "data" menghasilkan boolean true maka didalam localstorage ada data, jika didalam localstorage ada data
-      maka parsing data tersebut menjadi JSON lalu ubah isi variabel "tasks" dengan data localstorage yang sudah diparsing.
-      tapi jika tidak ada data, maka ubah isi variabel "tasks" dengan array kosong saja
-    */
-    tasks = data ? JSON.parse(data) : [];
-    // looping variabel "tasks"
-    tasks.forEach((task, index) => {
-      // dapatkan semua data yang ada dan dapatkan juga index dari data tersebut
-      showUI(task, index);
-      // update total biaya yang harus dibayarkan
-      updateTotalCost();
-    });
-  }
+	// Fungsi untuk menghapus data dari tasks
+	function deleteData(index) {
+		swal.fire({
+			icon: "info",
+			title: "Anda yakin?",
+			text: "Anda yakin ingin menghapus data ini?",
+			showCancelButton: true,
+		}).then((response) => {
+			// Jika pengguna mengkonfirmasi penghapusan
+			if (response.isConfirmed) {
+				// Menghapus item dari tasks berdasarkan index
+				tasks.splice(index, 1)
+				// Menyimpan perubahan ke localStorage
+				saveToLocalstorage()
+				// Menampilkan alert bahwa data berhasil dihapus
+				alerts("success", "Data berhasil dihapus!")
+				// Mengupdate total biaya
+				updateTotalCost()
+				// Memuat ulang data
+				loadData()
+			}
+		})
+	}
 
-  // jalankan fungsi loadData() supaya ketika halaman sudah dimuat, data yang sudah di inputkan kedalam halaman keranjang akan tampil
-  loadData();
+	// Mengambil elemen productContainer dan searchInput dari DOM
+	const productContainer = document.querySelector(".product-container")
+	const searchInput = document.querySelector(".search-input")
 
-  function updateTotalCost() {
-    // ambil isi dari variabel "tasks" yang memiliki property dengan nama "price"
-    // 0 adalah hasil default apabila tidak ada data yang bisa dijumlahkan
-    const result = tasks
-      .map((task) => task.price)
-      .reduce((total, num) => (total += num), 0);
-    // set isi variabel "result" kedalam element price
-    price.textContent = result;
-  }
+	// Menambahkan event listener untuk menangani pencarian
+	searchInput.addEventListener("keyup", function () {
+		const value = this.value.trim().toLowerCase()
+		// Jika nilai pencarian kosong, bersihkan productContainer
+		if (!value) return (productContainer.innerHTML = "")
+		// Memanggil fungsi searchData untuk mencari produk
+		searchData(value)
+	})
 
-  // event hapus data di keranjang belanja
-  window.addEventListener("click", (event) => {
-    // jika element yang ditekan memiliki class "btn-delete"
-    if (event.target.classList.contains("btn-delete")) {
-      // ambil isi dari atribut "data-id" pada element yang ditekan
-      const id = event.target.dataset.id;
-      // jalankan fungsi deleteData()
-      deleteData(id);
-    }
-  });
+	// Fungsi untuk mencari data produk berdasarkan nilai pencarian
+	function searchData(value) {
+		// Bersihkan productContainer
+		productContainer.innerHTML = ""
+		// Iterasi melalui dataProduct untuk menemukan produk yang cocok
+		dataProduct.forEach((data) => {
+			if (data.name.toLowerCase().indexOf(value) != -1 || data.price.toString().indexOf(value) != -1) {
+				// Membuat elemen hasil pencarian dan menambahkannya ke productContainer
+				const result = renderData(data)
+				productContainer.appendChild(result)
+			}
+		})
+	}
 
-  function deleteData(index) {
-    // plugin atau librsry dsri sweetalert2
-    swal
-      .fire({
-        icon: "info",
-        title: "anda yakin?",
-        text: "anda yakin ingin menghapus list data ini?",
-        showCancelButton: true,
-      })
-      .then((response) => {
-        // jika menekan tombol ok atau yes
-        if (response.isConfirmed) {
-          // hapus element array di index yang sesuai dengan parameter "index"
-          tasks.splice(index, 1);
-          // simpan perubahan tersebut kedalam localstorage
-          saveToLocalstorage();
-          // beri pesan bahwa "data berhasil dihapus"
-          alerts("success", "data berhasil dihapus!");
-          // update total biaya yang harus dibayarkan
-          updateTotalCost();
-          // load atau muat data yang ada didalam localstorage
-          loadData();
-        }
-      });
-  }
-  /* ========== SHOPPING CART END ========== */
+	// Fungsi untuk membuat elemen HTML produk hasil pencarian
+	function renderData({ image, name, price }) {
+		const box = create("div", "box-product")
+		const images = create("img", "image")
+		images.setAttribute("src", `images/${image}`)
+		images.setAttribute("alt", "gambar produk")
+		const wrapper = create("div", "text-wrapper")
+		const h4 = create("h4", "", name, true)
+		const span = create("span", "", price, true)
+		wrapper.appendChild(h4)
+		wrapper.appendChild(span)
+		box.appendChild(images)
+		box.appendChild(wrapper)
+		return box
+	}
 
-  /* ========== SEARCHING DATA START ========== */
-  const productContainer = document.querySelector(".product-container");
-  const searchInput = document.querySelector(".search-input");
-  searchInput.addEventListener("keyup", function () {
-    // value input pencarian produk
-    const value = this.value.trim().toLowerCase();
-    // jika input kosong, maka bersihkan isi element productContainer
-    if (!value) return (productContainer.innerHTML = "");
-    // jalankan fungsi searchData()
-    searchData(value);
-  });
+	// Fungsi untuk membuat elemen HTML dengan nama, kelas, dan nilai yang diberikan
+	function create(name, classname, value, show = false) {
+		const element = document.createElement(name)
+		element.className = !classname ? "" : classname
+		if (show == true) {
+			element.textContent = value
+			return element
+		}
+		return element
+	}
 
-  function searchData(value) {
-    // bersihkan isi element productContainer
-    productContainer.innerHTML = "";
-    // looping variabel "dataProduct"
-    dataProduct.forEach((data) => {
-      /*
-        jika ada nama produk atau harga produk yang sesuai dengan isi input pencarian produk
-        maka tampilkan produk tersebut dan sembunyikan produk lainnya.
-      */
-      if (
-        data.name.toLowerCase().indexOf(value) != -1 ||
-        data.price.toString().indexOf(value) != -1
-      ) {
-        // render isi variabel "data" menjadi sebuah element HTML
-        const result = renderData(data);
-        // tampilkan dibagian bawah menu input pencarian produk
-        productContainer.appendChild(result);
-      }
-    });
-  }
+	// Menambahkan event listener untuk menangani klik pada jendela
+	window.addEventListener("click", (event) => {
+		// Jika elemen yang diklik memiliki kelas "box-product"
+		if (event.target.classList.contains("box-product")) {
+			// Membuat objek item yang berisi informasi produk
+			const item = {
+				image: event.target.querySelector(".image").src,
+				name: setName(event.target.querySelector("h4").textContent),
+				price: parseFloat(event.target.querySelector("span").textContent),
+			}
 
-  function renderData({ image, name, price }) {
-    const box = create("div", "box-product");
+			// Menambahkan produk ke keranjang belanja
+			addProductToCart(item)
+		}
+	})
 
-    const images = create("img", "image");
-    images.setAttribute("src", `images/${image}`);
-    images.setAttribute("alt", "gambar produk");
+	// Mengambil elemen dengan kelas "button-checkout"
+	const btnCheckout = document.querySelector(".button-checkout")
 
-    const wrapper = create("div", "text-wrapper");
-    const h4 = create("h4", "", name, true);
-    const span = create("span", "", price, true);
+	// Menambahkan event listener untuk menangani klik pada tombol checkout
+	btnCheckout.addEventListener("click", function () {
+		// Menghitung jumlah produk di dalam boxContainer
+		const product = Array.from(boxContainer.children).length
 
-    wrapper.appendChild(h4);
-    wrapper.appendChild(span);
+		// Jika terdapat produk di dalam keranjang
+		if (product > 0) {
+			// Membuat pesan konfirmasi jumlah produk dan total biaya
+			const message = `Jumlah barang yang anda beli adalah sebanyak ${product} barang. Dan total biaya yang harus anda keluarkan adalah ${price.textContent}`
 
-    box.appendChild(images);
-    box.appendChild(wrapper);
+			// Menampilkan alert konfirmasi
+			alerts("success", message)
 
-    return box;
-  }
+			// Mengosongkan array tasks
+			tasks = []
 
-  function create(name, classname, value, show = false) {
-    // buat element html sesuai isi parameter "name"
-    const element = document.createElement(name);
-    // berikan class pada element yang dibuay
-    element.className = !classname ? "" : classname;
-    // jika parameter "show" menghasilkan boolean true
-    if (show == true) {
-      // berikan teks atau value pada element yang dibuat
-      element.textContent = value;
-      // kembalikan nilai berupa element HTML dengan value
-      return element;
-    }
-    // kembalikan nilai berupa element HTML tanpa value
-    return element;
-  }
-  /* ========== SEARCHING DATA END ========== */
+			// Menyimpan perubahan ke localStorage
+			saveToLocalstorage()
 
-  // fitur shopping cart dibagian menu input pencarian produk
-  window.addEventListener("click", (event) => {
-    if (event.target.classList.contains("box-product")) {
-      // tangkap isi dari gambar produk, nama produk dan harga produk
-      const item = {
-        image: event.target.querySelector(".image").src,
-        name: setName(event.target.querySelector("h4").textContent),
-        price: parseFloat(event.target.querySelector("span").textContent),
-      };
-      // jalankan fungsi addProductToCart()
-      addProductToCart(item);
-    }
-  });
+			// Mengupdate total biaya
+			updateTotalCost()
 
-  // fitur checkout di halaman keranjang
-  const btnCheckout = document.querySelector(".button-checkout");
-  btnCheckout.addEventListener("click", function () {
-    // jumlah barang
-    const product = Array.from(boxContainer.children).length;
-    // jika jumlah barang lebih besar dari angka 0
-    if (product > 0) {
-      // plugin atau library dari "sweetalert2"
-      const message = `jumlah barang yang anda beli adalah sebanyak ${product} barang. dan total biaya yang harus anda keluarkan adalah ${price.textContent}`;
-      alerts("success", message);
-      // hapus semua isi variabel "tasks"
-      tasks = [];
-      // simpan perubahan tersebut kedalam localstorage
-      saveToLocalstorage();
-      // update total biaya yang harus dibayarkan
-      updateTotalCost();
-      // load atau muat data yang ada didalam localstorage
-      loadData();
-    }
-  });
-});
+			// Memuat ulang data
+			loadData()
+		}
+	})
+})
