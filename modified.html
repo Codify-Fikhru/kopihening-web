@@ -1,152 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Kopi Hening</title>
 
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
-		<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
-		<link rel="stylesheet" href="css/style.css" />
-	</head>
-	<body x-cloak x-data="app">
-		<nav class="navbar" :class="navbar_scrolled ? 'active' : ''">
-			<a href="#" class="navbar-logo">Kopi <span>Hening</span></a>
-			<div class="navbar-list-group">
-				<a href="#home" class="navbar-list">Home</a>
-				<a href="#about" class="navbar-list">Tentang Kami</a>
-				<a href="#product" class="navbar-list">Produk</a>
-			</div>
-			<div class="navbar-icon">
-				<i class="icon fa-solid fa-magnifying-glass btn-modal"></i>
-				<i class="icon fa-solid fa-cart-shopping btn-modal"></i>
-				<a href="https://wa.me/+6282260353253" target="_blank" class="nk__cta_button" id="cta-wa">
-					<i class="fa-brands fa-whatsapp"></i>
-					<span>Hubungi Kami</span>
-				</a>
-				<i class="icon fa-solid fa-bars" id="hamburger"></i>
-			</div>
-		</nav>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Kopi Hening</title>
 
-		<section class="hero" id="home">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+	<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
+	<link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body x-cloak x-data="app">
+	<nav class="navbar" :class="navbar_scrolled ? 'active' : ''">
+		<a href="#" class="navbar-logo">Kopi <span>Hening</span></a>
+		<div class="navbar-list-group">
+			<a href="#home" class="navbar-list">Home</a>
+			<a href="#about" class="navbar-list">Tentang Kami</a>
+			<a href="#product" class="navbar-list">Produk</a>
+		</div>
+		<div class="navbar-icon">
+			<i class="icon fa-solid fa-magnifying-glass btn-modal"></i>
+			<i class="icon fa-solid fa-cart-shopping btn-modal"></i>
+			<a href="https://wa.me/+6282260353253" target="_blank" class="nk__cta_button" id="cta-wa">
+				<i class="fa-brands fa-whatsapp"></i>
+				<span>Hubungi Kami</span>
+			</a>
+			<i class="icon fa-solid fa-bars" id="hamburger"></i>
+		</div>
+	</nav>
+
+	<section class="hero" id="home">
+		<div class="content">
+			<h1>Mari Nikmati Secangkir <span>Kopi</span></h1>
+			<p>
+				Mengajak Anda untuk sejenak berhenti dari kesibukan sehari-hari dan menikmati kenikmatan secangkir kopi.
+				Setiap tegukan membawa kehangatan dan kedamaian,
+				menciptakan momen istimewa di tengah kesibukan hidup.
+			</p>
+			<a href="#product" class="button">Beli Sekarang</a>
+		</div>
+	</section>
+
+	<section class="about" id="about">
+		<h2>Tentang <span>Kami</span></h2>
+		<div class="row">
+			<div class="image-wrapper">
+				<img src="images/tentangkami.jpg" width="100" alt="tentang kami" class="image" />
+			</div>
 			<div class="content">
-				<h1>Mari Nikmati Secangkir <span>Kopi</span></h1>
-				<p>
-					Mengajak Anda untuk sejenak berhenti dari kesibukan sehari-hari dan menikmati kenikmatan secangkir kopi. Setiap tegukan membawa kehangatan dan kedamaian,
-					menciptakan momen istimewa di tengah kesibukan hidup.
-				</p>
-				<a href="#product" class="button">Beli Sekarang</a>
+				<h3>Kenapa Memilih Kami</h3>
+				<p>Kami memahami bahwa Anda memiliki banyak pilihan, dan itulah sebabnya kami berkomitmen untuk
+					memberikan yang terbaik.</p>
+				<p>Tim profesional kami siap melayani dengan ramah dan cepat, memastikan setiap kebutuhan Anda terpenuhi
+					dengan sempurna</p>
 			</div>
-		</section>
+		</div>
+	</section>
 
-		<section class="about" id="about">
-			<h2>Tentang <span>Kami</span></h2>
-			<div class="row">
-				<div class="image-wrapper">
-					<img src="images/tentangkami.jpg" width="100" alt="tentang kami" class="image" />
-				</div>
-				<div class="content">
-					<h3>Kenapa Memilih Kami</h3>
-					<p>Kami memahami bahwa Anda memiliki banyak pilihan, dan itulah sebabnya kami berkomitmen untuk memberikan yang terbaik.</p>
-					<p>Tim profesional kami siap melayani dengan ramah dan cepat, memastikan setiap kebutuhan Anda terpenuhi dengan sempurna</p>
-				</div>
-			</div>
-		</section>
+	<section class="product" id="product">
+		<div class="header">
+			<h2>Produk <span>Kami</span></h2>
+			<p>Kami bangga menyajikan produk-produk unggulan yang dirancang dengan teliti dan kualitas tinggi.</p>
+		</div>
+		<div class="card-container">
+			<template x-for="product in products">
+				<div class="nk__card">
+					<div class="nk__card-header">
+						<img class="gambar-produk" :src="'images/' + product.image" :alt="product.name" />
 
-		<section class="product" id="product">
-			<div class="header">
-				<h2>Produk <span>Kami</span></h2>
-				<p>Kami bangga menyajikan produk-produk unggulan yang dirancang dengan teliti dan kualitas tinggi.</p>
-			</div>
-			<div class="card-container">
-				<template x-for="product in products">
-					<div class="nk__card">
-						<div class="nk__card-header">
-							<img class="gambar-produk" :src="'images/' + product.image" :alt="product.name" />
-
-							<div class="nk__card-header-text">
-								<h4 class="nama-produk" x-text="product.name"></h4>
-								<p x-text="product.description"></p>
-							</div>
-						</div>
-						<div class="nk__card-footer">
-							<h5 class="harga-produk" x-text="formatPrice(product.price)"></h5>
-							<button type="button" @click="addToCart(product)" class="button button-cart">Add to cart</button>
+						<div class="nk__card-header-text">
+							<h4 class="nama-produk" x-text="product.name"></h4>
+							<p x-text="product.description"></p>
 						</div>
 					</div>
-				</template>
-			</div>
-		</section>
+					<div class="nk__card-footer">
+						<h5 class="harga-produk" x-text="formatPrice(product.price)"></h5>
+						<button type="button" @click="addToCart(product)" class="button button-cart">Add to
+							cart</button>
+					</div>
+				</div>
+			</template>
+		</div>
+	</section>
 
-		<div style="height: 300vh"></div>
+	<div style="height: 300vh"></div>
 
-		<script>
-			document.addEventListener("alpine:init", () => {
-				Alpine.data("app", () => ({
-					navbar_scrolled: false,
-					navbar_open: false,
-					products: [
-						{
-							image: "waffle.jpg",
-							name: "waffle",
-							price: 20000,
-							description:
-								"Waffle adalah kue yang dikenal dengan tekstur ringan, renyah di luar dan lembut di dalam, serta permukaan khas yang berbentuk kotak-kotak atau grid.",
-						},
-						{
-							image: "cookies.jpg",
-							name: "Cookies",
-							price: 20000,
-							description:
-								"Cookies adalah kue kecil yang terkenal dengan rasa manis dan tekstur yang renyah atau lembut. Mereka adalah camilan populer yang disukai oleh banyak orang di seluruh dunia karena variasinya yang tak terbatas dan kemudahan pembuatannya.",
-						},
-						{
-							image: "kroisan.jpg",
-							name: "Croissant",
-							price: 40000,
-							description:
-								"Croissant adalah roti panggang berbentuk bulan sabit yang terkenal dengan lapisan-lapisan renyah dan lembut di dalamnya. Kue ini adalah salah satu kue khas Prancis yang paling ikonik dan telah menjadi favorit di seluruh dunia.",
-						},
-						{
-							image: "Coffe Latte.jpg",
-							name: "Coffe Latte",
-							price: 30000,
-							description:
-								"Coffee Latte, sering disebut hanya sebagai latte, adalah minuman kopi berbasis espresso yang terkenal dengan tekstur lembut dan rasanya yang kaya namun halus.",
-						},
-						{
-							image: "ice coffe.jpg",
-							name: "Ice Coffe",
-							price: 25000,
-							description: "Iced Coffee biasanya disajikan dalam gelas tinggi dengan banyak es batu untuk menjaga suhu tetap dingin.",
-						},
-						{
-							image: "Americano.jpg",
-							name: "Americano",
-							price: 30000,
-							description:
-								"Americano adalah kopi yang dibuat dengan menambahkan air panas ke shot espresso. Kopi ini dikenal karena rasanya yang halus dan lebih ringan dibandingkan espresso murni.",
-						},
-					],
-					cart: [],
-					init() {
-						window.addEventListener("scroll", () => {
-							const value = window.scrollY
-							this.navbar_scrolled = value > 0
-						})
+	<script>
+		document.addEventListener("alpine:init", () => {
+			Alpine.data("app", () => ({
+				navbar_scrolled: false,
+				navbar_open: false,
+				products: [
+					{
+						image: "mie_nyemek.jpg",
+						name: "Mie Nyemek",
+						price: 13000,
+						description:
+							"Mie Nyemek adalah mie dengan tekstur yang empuk dan kuah yang sedikit menyerap, tidak terlalu berkuah tapi tetap terasa gurih dan lezat",
 					},
-					formatPrice(price) {
-						return new Intl.NumberFormat("id-ID", {
-							style: "currency",
-							currency: "IDR",
-							minimumFractionDigits: 0
-						}).format(price)
+					{
+						image: "jus_alpukat.jpg",
+						name: "Jus Alpukat",
+						price: 15000,
+						description: "Jus alpukat adalah minuman segar dan creamy yang terbuat dari buah alpukat matang pilihan.",
 					},
-					addToCart(product) {
-						this.cart.push(product)
-					}
-				}))
-			})
-		</script>
-	</body>
+					{
+						image: "Kopi.jpg",
+						name: "Kopi",
+						price: 10000,
+						description:
+							"Kopi adalah minuman yang dibuat dari biji kopi yang disangrai dan digiling. Rasanya yang khas dan aromanya yang kuat menjadikannya minuman favorit di seluruh dunia. ",
+					},
+				],
+				cart: [],
+				init() {
+					window.addEventListener("scroll", () => {
+						const value = window.scrollY
+						this.navbar_scrolled = value > 0
+					})
+				},
+				formatPrice(price) {
+					return new Intl.NumberFormat("id-ID", {
+						style: "currency",
+						currency: "IDR",
+						minimumFractionDigits: 0
+					}).format(price)
+				},
+				addToCart(product) {
+					this.cart.push(product)
+				}
+			}))
+		})
+	</script>
+</body>
+
 </html>

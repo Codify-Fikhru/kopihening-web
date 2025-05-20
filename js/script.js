@@ -69,44 +69,23 @@ window.addEventListener("DOMContentLoaded", () => {
 	// List data produk
 	const dataProduct = [
 		{
-			image: "waffle.jpg",
-			name: "waffle",
-			price: 20000,
-			description: "Waffle adalah kue yang dikenal dengan tekstur ringan, renyah di luar dan lembut di dalam, serta permukaan khas yang berbentuk kotak-kotak atau grid.",
+			image: "mie_nyemek.jpg",
+			name: "Mie Nyemek",
+			price: 13000,
+			description: "Mie Nyemek adalah mie dengan tekstur yang empuk dan kuah yang sedikit menyerap, tidak terlalu berkuah tapi tetap terasa gurih dan lezat",
 		},
 		{
-			image: "cookies.jpg",
-			name: "Cookies",
-			price: 20000,
+			image: "jus_alpukat.jpg",
+			name: "Jus Alpukat",
+			price: 15000,
+			description: "Jus alpukat adalah minuman segar dan creamy yang terbuat dari buah alpukat matang pilihan.",
+		},
+		{
+			image: "Kopi.jpg",
+			name: "Kopi",
+			price: 10000,
 			description:
-				"Cookies adalah kue kecil yang terkenal dengan rasa manis dan tekstur yang renyah atau lembut. Mereka adalah camilan populer yang disukai oleh banyak orang di seluruh dunia karena variasinya yang tak terbatas dan kemudahan pembuatannya.",
-		},
-		{
-			image: "kroisan.jpg",
-			name: "Croissant",
-			price: 40000,
-			description:
-				"Croissant adalah roti panggang berbentuk bulan sabit yang terkenal dengan lapisan-lapisan renyah dan lembut di dalamnya. Kue ini adalah salah satu kue khas Prancis yang paling ikonik dan telah menjadi favorit di seluruh dunia.",
-		},
-		{
-			image: "Coffe Latte.jpg",
-			name: "Coffe Latte",
-			price: 30000,
-			description:
-				"Coffee Latte, sering disebut hanya sebagai latte, adalah minuman kopi berbasis espresso yang terkenal dengan tekstur lembut dan rasanya yang kaya namun halus.",
-		},
-		{
-			image: "ice coffe.jpg",
-			name: "Ice Coffe",
-			price: 25000,
-			description: "Iced Coffee biasanya disajikan dalam gelas tinggi dengan banyak es batu untuk menjaga suhu tetap dingin.",
-		},
-		{
-			image: "Americano.jpg",
-			name: "Americano",
-			price: 30000,
-			description:
-				"Americano adalah kopi yang dibuat dengan menambahkan air panas ke shot espresso. Kopi ini dikenal karena rasanya yang halus dan lebih ringan dibandingkan espresso murni.",
+				"Kopi adalah minuman yang dibuat dari biji kopi yang disangrai dan digiling. Rasanya yang khas dan aromanya yang kuat menjadikannya minuman favorit di seluruh dunia. ",
 		},
 	]
 
